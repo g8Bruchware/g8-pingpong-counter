@@ -46,10 +46,16 @@ long timeoutMillis;
 bool ignorePoint[2] = {false, false};
 
 void setup() {
+  Serial.begin(9600);
+
+  Serial.println("START");
   disp.begin(DISPLAY_ADDRESS);
+  Serial.println("got here");
   disp.setBrightness(10);
   disp.clear();
   disp.writeDisplay();
+  Serial.println("SETUP after Display");
+
 
   state = "idle";
   pinMode(BUTTON_P1, INPUT_PULLUP);
@@ -59,7 +65,10 @@ void setup() {
 
   time1 = 0;
   time2 = 0;
-  Serial.begin(9600);
+
+  Serial.println("SETUP END");
+
+  
 }
 
 long current_millis = 0;
